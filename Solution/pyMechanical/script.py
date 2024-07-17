@@ -16,19 +16,19 @@ note:
 
 
 # embedding import block. If running in IronPython, this will do nothing.
-try:
-    import ansys.mechanical.core as mech
-    app = mech.App(version=241)
-    globals().update(mech.global_variables(app, True))
-except ImportError as e:
-    pass
+# try:
+#     import ansys.mechanical.core as mech
+#     app = mech.App(version=241)
+#     globals().update(mech.global_variables(app, True))
+# except ImportError as e:
+#     pass
 
 
 import os
 
 geometry_file = os.path.abspath(os.path.join(os.getcwd(), "Files", "Eng157.x_t"))
 if not os.path.isfile(geometry_file):
-    geometry_file = r"C:\Users\aks\OneDrive - ANSYS, Inc\Desktop\Trainings_Sessions_TechDays\PyAnsys\APAC_CP_Session_July24\pyMechanical_Workshop\Files\Eng157.x_t"
+    geometry_file = r"C:\Downloads\pyMechanical_Workshop\Files\Eng157.x_t"
 
 geometry_import = Model.GeometryImportGroup.AddGeometryImport()
 geometry_import.Import(geometry_file)
